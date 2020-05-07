@@ -26,19 +26,20 @@ int main(int argc, const char* argv[]){
         
         cout << "Was your number: " << guesses[i] <<  " Y or N\n";
         getline(cin, userInput); // get user input
-        numGuess++; //increase number of guesses
         if(userInput == "Y" || userInput == "y" || userInput == "yes"){ //this will exit the do while loop
-            cout << "I found the number in " << numGuess << " steps\n";
+        numGuess++;
+        cout << "I found the number in " << numGuess << " steps\n";
+            
         }
         else if(userInput == "N" || userInput == "n" || userInput == "no"){ //this will go to the next number
             cout << "I'll try again\n";
             i++; //goes to next number in shuffled array
+            numGuess++; //increase number of guesses
         }
         else{ 
             cout << "Only enter 'Y' or 'N'\n";
         }
         
-    }while(userInput != "Y");
-
+    }while(userInput != "Y" && userInput != "y" && userInput != "yes");
     return 0;
 }

@@ -16,15 +16,33 @@ string reverse(string const &str){
 
 int main(int argc, const char * argv[]){
 
-    //initialize variables
+    //initialize variablesq
     string first = "";
     string second = "";
-
+    int gInput = 0;
+    int count = 0;
     //ask for string
     cout << "Input string of 10 numbers with no spaces.\n";
     //get the only the first string
-    getline(cin, first);
-    
+    do{
+        getline(cin, first);
+        if(first.length() != 10){
+            cout << "Type 10 numbers" << endl;
+        }
+        else if(first.length() == 10){
+            for(int i = 0; i< 10; i++){
+                if(isdigit(first[i]) == true && first[i] != ' '){
+                    count ++;
+                     if(count == 10){
+                        gInput = 1;
+                     }
+                }
+                else{
+                    cout << "Number only and no spaces" << endl;
+                }
+            }
+        }
+    }while(gInput == 0);
     //set second the reverse of first
     second = reverse(first);
 
